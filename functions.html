@@ -1,0 +1,639 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Learn Python Functions the fun way! An interactive K-12 tutorial covering creating functions, arguments, return values, lambda, and scope." />
+  <title>Python Functions – Learn with Fun! 🐍</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="functions.css" />
+</head>
+<body>
+
+  <!-- HERO -->
+  <header class="hero" id="top">
+    <div class="hero-blob blob1"></div>
+    <div class="hero-blob blob2"></div>
+    <div class="hero-content">
+      <span class="badge">🐍 Python for K-12</span>
+      <h1>Python <span class="gradient-text">Functions</span></h1>
+      <p class="hero-sub">Write code once, use it anywhere! Functions are your superpower in Python.</p>
+      <a href="#lessons" class="btn-start">Start Learning ✨</a>
+    </div>
+    <div class="hero-emoji">⚙️</div>
+  </header>
+
+  <!-- PROGRESS BAR -->
+  <div class="progress-bar-wrap">
+    <div class="progress-bar-inner" id="progressBar"></div>
+  </div>
+
+  <!-- STICKY NAV PILLS — horizontal scroll -->
+  <nav class="lesson-nav" id="lessons" aria-label="Lesson navigation">
+    <div class="nav-scroll">
+      <a class="nav-pill dash-pill" href="dashboard.html">🏠 Dashboard</a>
+      <button class="nav-pill active" data-lesson="0" onclick="goToLesson(0)">⚙️ What is a Function?</button>
+      <button class="nav-pill" data-lesson="1" onclick="goToLesson(1)">🏗️ Defining &amp; Calling</button>
+      <button class="nav-pill" data-lesson="2" onclick="goToLesson(2)">📨 Arguments</button>
+      <button class="nav-pill" data-lesson="3" onclick="goToLesson(3)">↩️ Return Values</button>
+      <button class="nav-pill" data-lesson="4" onclick="goToLesson(4)">⚡ Lambda Functions</button>
+      <button class="nav-pill" data-lesson="5" onclick="goToLesson(5)">🌍 Scope</button>
+      <button class="nav-pill" data-lesson="6" onclick="goToLesson(6)">🎮 Try It!</button>
+    </div>
+  </nav>
+
+  <!-- LESSONS -->
+  <main class="lessons-wrap">
+
+    <!-- ===== LESSON 0: What is a Function? ===== -->
+    <section class="lesson active" id="lesson-0">
+      <div class="lesson-header">
+        <span class="lesson-icon">⚙️</span>
+        <div>
+          <p class="lesson-label">Lesson 1</p>
+          <h2>What is a Function?</h2>
+        </div>
+      </div>
+
+      <div class="card concept-card">
+        <p>A <strong>function</strong> is a named block of code that only runs when you <em>call</em> it. Think of it like a <strong>recipe</strong> — you write the recipe once, and you can cook the same dish anytime by just saying its name!</p>
+      </div>
+
+      <!-- Real-world analogy cards -->
+      <div class="analogy-grid">
+        <div class="analogy-card">
+          <div class="analogy-icon">📱</div>
+          <h3>Like a phone shortcut</h3>
+          <p>You press one button and it dials a long number. The shortcut <em>hides</em> the complexity!</p>
+        </div>
+        <div class="analogy-card">
+          <div class="analogy-icon">🍕</div>
+          <h3>Like a food recipe</h3>
+          <p>Write the recipe once, follow it any time you want pizza. No need to reinvent it!</p>
+        </div>
+        <div class="analogy-card">
+          <div class="analogy-icon">🎮</div>
+          <h3>Like a game ability</h3>
+          <p>Press a button → character jumps. The jump code runs every time without rewriting it.</p>
+        </div>
+      </div>
+
+      <div class="card concept-card">
+        <p>In Python, a function helps you:</p>
+        <ul class="benefit-list">
+          <li>🚫 <strong>Avoid repeating</strong> the same code over and over</li>
+          <li>📦 <strong>Organise</strong> code into neat, named blocks</li>
+          <li>🔄 <strong>Reuse</strong> code anywhere in your program</li>
+          <li>🐛 <strong>Fix bugs</strong> in one place instead of many</li>
+        </ul>
+      </div>
+
+      <div class="card fact-card">
+        <span class="fact-icon">💡</span>
+        <p>Python has many <strong>built-in</strong> functions you already know — like <code>print()</code>, <code>len()</code>, and <code>range()</code>. Now you'll learn to make your <em>own</em>!</p>
+      </div>
+
+      <div class="lesson-nav-btns">
+        <span></span>
+        <button class="btn-next" onclick="goToLesson(1)">Next Lesson →</button>
+      </div>
+    </section>
+
+    <!-- ===== LESSON 1: Defining & Calling ===== -->
+    <section class="lesson" id="lesson-1">
+      <div class="lesson-header">
+        <span class="lesson-icon">🏗️</span>
+        <div>
+          <p class="lesson-label">Lesson 2</p>
+          <h2>Defining &amp; Calling a Function</h2>
+        </div>
+      </div>
+
+      <div class="card concept-card">
+        <p>To <strong>define</strong> (create) a function in Python, use the <code>def</code> keyword. To <strong>call</strong> it (run it), just write its name followed by parentheses <code>()</code>.</p>
+      </div>
+
+      <!-- Anatomy diagram -->
+      <div class="anatomy-diagram">
+        <div class="anat-line">
+          <span class="anat-kw">def</span>
+          <span class="anat-name" id="anatName">greet</span>
+          <span class="anat-paren">()</span>
+          <span class="anat-colon">:</span>
+          <div class="anat-arrow anat-arrow-def">← <strong>def</strong> keyword + function name</div>
+        </div>
+        <div class="anat-body">
+          <span class="anat-indent"></span>
+          <span class="anat-kw2">print</span>
+          <span class="anat-paren">(</span>
+          <span class="anat-str">"Hello, World!"</span>
+          <span class="anat-paren">)</span>
+          <div class="anat-arrow anat-arrow-body">← indented code block (the recipe)</div>
+        </div>
+        <div class="anat-call-row">
+          <span class="anat-call-name" id="anatCallName">greet</span>
+          <span class="anat-paren">()</span>
+          <div class="anat-arrow anat-arrow-call">← calling the function runs it!</div>
+        </div>
+      </div>
+
+      <div class="card code-card">
+        <div class="code-label">🐍 Define and Call a Function</div>
+        <pre><code><span class="comment"># Step 1: DEFINE the function</span>
+<span class="kw">def</span> <span class="fn">greet</span>()<span class="colon">:</span>
+    <span class="kw">print</span>(<span class="str">"Hello, Python student!"</span>)
+    <span class="kw">print</span>(<span class="str">"Welcome to functions!"</span>)
+
+<span class="comment"># Step 2: CALL the function (as many times as you want!)</span>
+<span class="fn">greet</span>()   <span class="comment"># Hello, Python student!</span>
+<span class="fn">greet</span>()   <span class="comment"># Hello, Python student!</span>
+<span class="fn">greet</span>()   <span class="comment"># Hello, Python student!</span></code></pre>
+        <button class="btn-copy" onclick="copyCode(this)">📋 Copy</button>
+      </div>
+
+      <div class="card concept-card" style="border-left:4px solid var(--accent3)">
+        <p>📏 <strong>Naming Rules (same as variables):</strong> start with a letter or underscore, use only letters/numbers/underscores, no spaces, case-sensitive. Use <code>snake_case</code> for Python functions!</p>
+      </div>
+
+      <div class="card quiz-card" id="quiz-1">
+        <h3>🧠 Quick Quiz</h3>
+        <p>Which keyword do you use to <strong>define</strong> a function in Python?</p>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="checkQuiz('quiz-1',this,'wrong')">function</button>
+          <button class="quiz-btn" onclick="checkQuiz('quiz-1',this,'correct')">def</button>
+          <button class="quiz-btn" onclick="checkQuiz('quiz-1',this,'wrong')">fn</button>
+          <button class="quiz-btn" onclick="checkQuiz('quiz-1',this,'wrong')">create</button>
+        </div>
+        <p class="quiz-feedback" id="quiz-1-feedback"></p>
+      </div>
+
+      <div class="lesson-nav-btns">
+        <button class="btn-prev" onclick="goToLesson(0)">← Previous</button>
+        <button class="btn-next" onclick="goToLesson(2)">Next Lesson →</button>
+      </div>
+    </section>
+
+    <!-- ===== LESSON 2: Arguments ===== -->
+    <section class="lesson" id="lesson-2">
+      <div class="lesson-header">
+        <span class="lesson-icon">📨</span>
+        <div>
+          <p class="lesson-label">Lesson 3</p>
+          <h2>Arguments &amp; Parameters</h2>
+        </div>
+      </div>
+
+      <div class="card concept-card">
+        <p>You can send <strong>information into a function</strong> using <em>arguments</em>. Inside the function definition, the placeholder names are called <em>parameters</em>.</p>
+      </div>
+
+      <!-- Parameter vs Argument visual -->
+      <div class="param-arg-visual">
+        <div class="pav-def">
+          <div class="pav-label">Function Definition</div>
+          <div class="pav-code">
+            <span class="kw">def</span> <span class="fn">greet</span>(<span class="param">name</span>)<span class="colon">:</span>
+          </div>
+          <div class="pav-tag param-tag">Parameter 📥</div>
+          <p class="pav-desc">The placeholder variable — it receives the value</p>
+        </div>
+        <div class="pav-arrow">→</div>
+        <div class="pav-call">
+          <div class="pav-label">Function Call</div>
+          <div class="pav-code">
+            <span class="fn">greet</span>(<span class="str">"Alice"</span>)
+          </div>
+          <div class="pav-tag arg-tag">Argument 📤</div>
+          <p class="pav-desc">The actual value you pass in</p>
+        </div>
+      </div>
+
+      <div class="card code-card">
+        <div class="code-label">🐍 One Argument</div>
+        <pre><code><span class="kw">def</span> <span class="fn">greet</span>(<span class="param">name</span>)<span class="colon">:</span>
+    <span class="kw">print</span>(<span class="str">"Hello,"</span>, <span class="param">name</span>)
+
+<span class="fn">greet</span>(<span class="str">"Alice"</span>)   <span class="comment"># Hello, Alice</span>
+<span class="fn">greet</span>(<span class="str">"Bob"</span>)     <span class="comment"># Hello, Bob</span>
+<span class="fn">greet</span>(<span class="str">"Maria"</span>)   <span class="comment"># Hello, Maria</span></code></pre>
+        <button class="btn-copy" onclick="copyCode(this)">📋 Copy</button>
+      </div>
+
+      <div class="card code-card">
+        <div class="code-label">🐍 Multiple Arguments</div>
+        <pre><code><span class="kw">def</span> <span class="fn">describe_student</span>(<span class="param">name</span>, <span class="param">grade</span>, <span class="param">subject</span>)<span class="colon">:</span>
+    <span class="kw">print</span>(<span class="param">name</span>, <span class="str">"is in grade"</span>, <span class="param">grade</span>)
+    <span class="kw">print</span>(<span class="str">"Favourite subject:"</span>, <span class="param">subject</span>)
+
+<span class="fn">describe_student</span>(<span class="str">"Alice"</span>, <span class="num">8</span>, <span class="str">"Math"</span>)</code></pre>
+        <button class="btn-copy" onclick="copyCode(this)">📋 Copy</button>
+      </div>
+
+      <div class="card code-card">
+        <div class="code-label">🐍 Default Parameter Values</div>
+        <pre><code><span class="comment"># Give a parameter a DEFAULT value</span>
+<span class="kw">def</span> <span class="fn">greet</span>(<span class="param">name</span> <span class="op">=</span> <span class="str">"Student"</span>)<span class="colon">:</span>
+    <span class="kw">print</span>(<span class="str">"Hello,"</span>, <span class="param">name</span>)
+
+<span class="fn">greet</span>(<span class="str">"Alice"</span>)  <span class="comment"># Hello, Alice</span>
+<span class="fn">greet</span>()         <span class="comment"># Hello, Student  ← uses default</span></code></pre>
+        <button class="btn-copy" onclick="copyCode(this)">📋 Copy</button>
+      </div>
+
+      <!-- Interactive argument builder -->
+      <div class="card arg-builder">
+        <h3>🧪 Argument Playground</h3>
+        <p>Fill in the values and see the function output live:</p>
+        <div class="ab-inputs">
+          <div class="ab-field">
+            <label>Your Name</label>
+            <input type="text" id="ab-name" value="Alice" oninput="runArgBuilder()" maxlength="20" />
+          </div>
+          <div class="ab-field">
+            <label>Your Grade</label>
+            <input type="number" id="ab-grade" value="8" min="1" max="12" oninput="runArgBuilder()" />
+          </div>
+          <div class="ab-field">
+            <label>Favourite Subject</label>
+            <input type="text" id="ab-subject" value="Math" oninput="runArgBuilder()" maxlength="20" />
+          </div>
+        </div>
+        <div class="ab-output">
+          <div class="code-label">⚡ Generated Code</div>
+          <pre id="ab-code"><code></code></pre>
+        </div>
+        <div class="ab-result-area">
+          <div class="code-label">📤 Output</div>
+          <div id="ab-result" class="ab-result"></div>
+        </div>
+      </div>
+
+      <div class="card quiz-card" id="quiz-2">
+        <h3>🧠 Quick Quiz</h3>
+        <p>What is the <strong>parameter</strong> in: <code>def add(x, y):</code>?</p>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="checkQuiz('quiz-2',this,'wrong')">add</button>
+          <button class="quiz-btn" onclick="checkQuiz('quiz-2',this,'correct')">x and y</button>
+          <button class="quiz-btn" onclick="checkQuiz('quiz-2',this,'wrong')">def</button>
+          <button class="quiz-btn" onclick="checkQuiz('quiz-2',this,'wrong')">The colon :</button>
+        </div>
+        <p class="quiz-feedback" id="quiz-2-feedback"></p>
+      </div>
+
+      <div class="lesson-nav-btns">
+        <button class="btn-prev" onclick="goToLesson(1)">← Previous</button>
+        <button class="btn-next" onclick="goToLesson(3)">Next Lesson →</button>
+      </div>
+    </section>
+
+    <!-- ===== LESSON 3: Return Values ===== -->
+    <section class="lesson" id="lesson-3">
+      <div class="lesson-header">
+        <span class="lesson-icon">↩️</span>
+        <div>
+          <p class="lesson-label">Lesson 4</p>
+          <h2>Return Values</h2>
+        </div>
+      </div>
+
+      <div class="card concept-card">
+        <p>Functions can <strong>send data back</strong> to the caller using <code>return</code>. Think of it like ordering at a restaurant — you give the order (arguments) and get a meal back (return value)!</p>
+      </div>
+
+      <!-- Return flow diagram -->
+      <div class="return-flow">
+        <div class="rf-step rf-caller">
+          <div class="rf-icon">👤</div>
+          <p>Caller</p>
+          <code>result = add(3, 4)</code>
+        </div>
+        <div class="rf-arrow">
+          <div class="rf-label-top">passes 3 and 4 →</div>
+          <div class="rf-track"></div>
+          <div class="rf-label-bot">← gets back 7</div>
+        </div>
+        <div class="rf-step rf-function">
+          <div class="rf-icon">⚙️</div>
+          <p>Function</p>
+          <code>return 3 + 4</code>
+        </div>
+      </div>
+
+      <div class="card code-card">
+        <div class="code-label">🐍 Basic return</div>
+        <pre><code><span class="kw">def</span> <span class="fn">add</span>(<span class="param">x</span>, <span class="param">y</span>)<span class="colon">:</span>
+    <span class="kw">return</span> <span class="param">x</span> <span class="op">+</span> <span class="param">y</span>
+
+<span class="var-name">result</span> <span class="op">=</span> <span class="fn">add</span>(<span class="num">3</span>, <span class="num">4</span>)
+<span class="kw">print</span>(<span class="var-name">result</span>)    <span class="comment"># 7</span>
+
+<span class="comment"># Use the result directly</span>
+<span class="kw">print</span>(<span class="fn">add</span>(<span class="num">10</span>, <span class="num">20</span>))  <span class="comment"># 30</span></code></pre>
+        <button class="btn-copy" onclick="copyCode(this)">📋 Copy</button>
+      </div>
+
+      <div class="card code-card">
+        <div class="code-label">🐍 Practical Example — Temperature Converter</div>
+        <pre><code><span class="kw">def</span> <span class="fn">celsius_to_fahrenheit</span>(<span class="param">celsius</span>)<span class="colon">:</span>
+    <span class="kw">return</span> (<span class="param">celsius</span> <span class="op">*</span> <span class="num">9</span> <span class="op">/</span> <span class="num">5</span>) <span class="op">+</span> <span class="num">32</span>
+
+<span class="kw">print</span>(<span class="fn">celsius_to_fahrenheit</span>(<span class="num">0</span>))    <span class="comment"># 32.0</span>
+<span class="kw">print</span>(<span class="fn">celsius_to_fahrenheit</span>(<span class="num">100</span>))  <span class="comment"># 212.0</span>
+<span class="kw">print</span>(<span class="fn">celsius_to_fahrenheit</span>(<span class="num">37</span>))   <span class="comment"># 98.6</span></code></pre>
+        <button class="btn-copy" onclick="copyCode(this)">📋 Copy</button>
+      </div>
+
+      <!-- Live converter -->
+      <div class="card converter-card">
+        <h3>🌡️ Live Temperature Converter</h3>
+        <p>Enter a Celsius temperature — the function converts it instantly:</p>
+        <div class="conv-row">
+          <input type="number" id="celsius-input" value="25" oninput="runConverter()" />
+          <span class="conv-label">°C</span>
+          <span class="conv-equals">=</span>
+          <div class="conv-result" id="conv-result">77.0</div>
+          <span class="conv-label">°F</span>
+        </div>
+        <div class="conv-code" id="conv-code"></div>
+      </div>
+
+      <div class="card quiz-card" id="quiz-3">
+        <h3>🧠 Quick Quiz</h3>
+        <p>What keyword sends a value <strong>back</strong> from a function to the caller?</p>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="checkQuiz('quiz-3',this,'wrong')">send</button>
+          <button class="quiz-btn" onclick="checkQuiz('quiz-3',this,'wrong')">give</button>
+          <button class="quiz-btn" onclick="checkQuiz('quiz-3',this,'correct')">return</button>
+          <button class="quiz-btn" onclick="checkQuiz('quiz-3',this,'wrong')">output</button>
+        </div>
+        <p class="quiz-feedback" id="quiz-3-feedback"></p>
+      </div>
+
+      <div class="lesson-nav-btns">
+        <button class="btn-prev" onclick="goToLesson(2)">← Previous</button>
+        <button class="btn-next" onclick="goToLesson(4)">Next Lesson →</button>
+      </div>
+    </section>
+
+    <!-- ===== LESSON 4: Lambda Functions ===== -->
+    <section class="lesson" id="lesson-4">
+      <div class="lesson-header">
+        <span class="lesson-icon">⚡</span>
+        <div>
+          <p class="lesson-label">Lesson 5</p>
+          <h2>Lambda Functions</h2>
+        </div>
+      </div>
+
+      <div class="card concept-card">
+        <p>A <strong>lambda function</strong> is a tiny, anonymous (unnamed) function written in a single line. Perfect for quick, one-off calculations!</p>
+        <p style="margin-top:.75rem">Syntax: <code>lambda <span class="param-inline">parameters</span> : <span class="expr-inline">expression</span></code></p>
+      </div>
+
+      <!-- Normal vs Lambda comparison -->
+      <div class="lambda-compare">
+        <div class="lc-col">
+          <div class="lc-label">Normal Function</div>
+          <div class="card code-card" style="margin-bottom:0">
+            <pre><code><span class="kw">def</span> <span class="fn">double</span>(<span class="param">x</span>)<span class="colon">:</span>
+    <span class="kw">return</span> <span class="param">x</span> <span class="op">*</span> <span class="num">2</span>
+
+<span class="kw">print</span>(<span class="fn">double</span>(<span class="num">5</span>))  <span class="comment"># 10</span></code></pre>
+          </div>
+        </div>
+        <div class="lc-arrow">⚡</div>
+        <div class="lc-col">
+          <div class="lc-label">Lambda Function</div>
+          <div class="card code-card" style="margin-bottom:0">
+            <pre><code><span class="var-name">double</span> <span class="op">=</span> <span class="kw">lambda</span> <span class="param">x</span><span class="colon">:</span> <span class="param">x</span> <span class="op">*</span> <span class="num">2</span>
+
+<span class="kw">print</span>(<span class="var-name">double</span>(<span class="num">5</span>))  <span class="comment"># 10</span></code></pre>
+          </div>
+        </div>
+      </div>
+
+      <div class="card code-card" style="margin-top:1.2rem">
+        <div class="code-label">🐍 Lambda with Multiple Arguments</div>
+        <pre><code><span class="comment"># Add two numbers</span>
+<span class="var-name">add</span> <span class="op">=</span> <span class="kw">lambda</span> <span class="param">x</span>, <span class="param">y</span><span class="colon">:</span> <span class="param">x</span> <span class="op">+</span> <span class="param">y</span>
+<span class="kw">print</span>(<span class="var-name">add</span>(<span class="num">3</span>, <span class="num">4</span>))         <span class="comment"># 7</span>
+
+<span class="comment"># Calculate area of rectangle</span>
+<span class="var-name">area</span> <span class="op">=</span> <span class="kw">lambda</span> <span class="param">w</span>, <span class="param">h</span><span class="colon">:</span> <span class="param">w</span> <span class="op">*</span> <span class="param">h</span>
+<span class="kw">print</span>(<span class="var-name">area</span>(<span class="num">5</span>, <span class="num">3</span>))        <span class="comment"># 15</span>
+
+<span class="comment"># Lambda inside a function (multiplier maker)</span>
+<span class="kw">def</span> <span class="fn">make_multiplier</span>(<span class="param">n</span>)<span class="colon">:</span>
+    <span class="kw">return</span> <span class="kw">lambda</span> <span class="param">x</span><span class="colon">:</span> <span class="param">x</span> <span class="op">*</span> <span class="param">n</span>
+
+<span class="var-name">triple</span> <span class="op">=</span> <span class="fn">make_multiplier</span>(<span class="num">3</span>)
+<span class="kw">print</span>(<span class="var-name">triple</span>(<span class="num">7</span>))           <span class="comment"># 21</span></code></pre>
+        <button class="btn-copy" onclick="copyCode(this)">📋 Copy</button>
+      </div>
+
+      <!-- Lambda playground -->
+      <div class="card lambda-play">
+        <h3>⚡ Lambda Playground</h3>
+        <p>Choose a lambda and test it with your own values:</p>
+        <div class="lp-select-row">
+          <select id="lp-func" onchange="runLambdaPlay()">
+            <option value="double">double: x * 2</option>
+            <option value="square">square: x ** 2</option>
+            <option value="add">add: x + y</option>
+            <option value="area">area: w * h</option>
+          </select>
+        </div>
+        <div class="lp-inputs" id="lp-inputs"></div>
+        <div class="lp-result" id="lp-result"></div>
+      </div>
+
+      <div class="card quiz-card" id="quiz-4">
+        <h3>🧠 Quick Quiz</h3>
+        <p>How many expressions can a lambda function have?</p>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="checkQuiz('quiz-4',this,'wrong')">Unlimited</button>
+          <button class="quiz-btn" onclick="checkQuiz('quiz-4',this,'correct')">Only one</button>
+          <button class="quiz-btn" onclick="checkQuiz('quiz-4',this,'wrong')">None</button>
+          <button class="quiz-btn" onclick="checkQuiz('quiz-4',this,'wrong')">Two</button>
+        </div>
+        <p class="quiz-feedback" id="quiz-4-feedback"></p>
+      </div>
+
+      <div class="lesson-nav-btns">
+        <button class="btn-prev" onclick="goToLesson(3)">← Previous</button>
+        <button class="btn-next" onclick="goToLesson(5)">Next Lesson →</button>
+      </div>
+    </section>
+
+    <!-- ===== LESSON 5: Scope ===== -->
+    <section class="lesson" id="lesson-5">
+      <div class="lesson-header">
+        <span class="lesson-icon">🌍</span>
+        <div>
+          <p class="lesson-label">Lesson 6</p>
+          <h2>Variable Scope</h2>
+        </div>
+      </div>
+
+      <div class="card concept-card">
+        <p><strong>Scope</strong> means where a variable is <em>visible</em> and accessible. Variables created in different places have different scopes — they don't always see each other!</p>
+      </div>
+
+      <!-- Scope visual house -->
+      <div class="scope-house">
+        <div class="scope-global">
+          <div class="scope-label global-label">🌍 Global Scope</div>
+          <div class="scope-var">x = "global"</div>
+          <div class="scope-local-box">
+            <div class="scope-label local-label">🏠 Local Scope (inside function)</div>
+            <div class="scope-var">x = "local"</div>
+            <div class="scope-note">This x is different from the global x!</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card code-card">
+        <div class="code-label">🐍 Local Scope — variable only lives inside the function</div>
+        <pre><code><span class="kw">def</span> <span class="fn">my_func</span>()<span class="colon">:</span>
+    <span class="var-name">secret</span> <span class="op">=</span> <span class="str">"I'm local!"</span>   <span class="comment"># local variable</span>
+    <span class="kw">print</span>(<span class="var-name">secret</span>)            <span class="comment"># works here ✅</span>
+
+<span class="fn">my_func</span>()
+<span class="kw">print</span>(<span class="var-name">secret</span>)   <span class="comment"># ❌ ERROR! 'secret' doesn't exist outside</span></code></pre>
+        <button class="btn-copy" onclick="copyCode(this)">📋 Copy</button>
+      </div>
+
+      <div class="card code-card">
+        <div class="code-label">🐍 Global Scope — accessible everywhere</div>
+        <pre><code><span class="var-name">greeting</span> <span class="op">=</span> <span class="str">"Hello!"</span>   <span class="comment"># global variable</span>
+
+<span class="kw">def</span> <span class="fn">say_hi</span>()<span class="colon">:</span>
+    <span class="kw">print</span>(<span class="var-name">greeting</span>)   <span class="comment"># ✅ can read global variable</span>
+
+<span class="fn">say_hi</span>()              <span class="comment"># Hello!</span>
+<span class="kw">print</span>(<span class="var-name">greeting</span>)     <span class="comment"># Hello!</span></code></pre>
+        <button class="btn-copy" onclick="copyCode(this)">📋 Copy</button>
+      </div>
+
+      <div class="card code-card">
+        <div class="code-label">🐍 Using the global keyword to modify from inside</div>
+        <pre><code><span class="var-name">count</span> <span class="op">=</span> <span class="num">0</span>
+
+<span class="kw">def</span> <span class="fn">increment</span>()<span class="colon">:</span>
+    <span class="kw">global</span> <span class="var-name">count</span>      <span class="comment"># declare we want the global one</span>
+    <span class="var-name">count</span> <span class="op">+=</span> <span class="num">1</span>
+
+<span class="fn">increment</span>()
+<span class="fn">increment</span>()
+<span class="kw">print</span>(<span class="var-name">count</span>)   <span class="comment"># 2</span></code></pre>
+        <button class="btn-copy" onclick="copyCode(this)">📋 Copy</button>
+      </div>
+
+      <!-- Scope comparison table -->
+      <div class="scope-table-wrap">
+        <table class="scope-table">
+          <thead>
+            <tr><th>Feature</th><th>🏠 Local</th><th>🌍 Global</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Created</td><td>Inside a function</td><td>Outside all functions</td></tr>
+            <tr><td>Accessible inside function</td><td class="yes">✅ Yes</td><td class="yes">✅ Yes</td></tr>
+            <tr><td>Accessible outside function</td><td class="no">❌ No</td><td class="yes">✅ Yes</td></tr>
+            <tr><td>Lives until</td><td>Function ends</td><td>Program ends</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="card quiz-card" id="quiz-5">
+        <h3>🧠 Quick Quiz</h3>
+        <p>A variable created <strong>inside</strong> a function has…</p>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="checkQuiz('quiz-5',this,'correct')">Local scope</button>
+          <button class="quiz-btn" onclick="checkQuiz('quiz-5',this,'wrong')">Global scope</button>
+          <button class="quiz-btn" onclick="checkQuiz('quiz-5',this,'wrong')">No scope</button>
+          <button class="quiz-btn" onclick="checkQuiz('quiz-5',this,'wrong')">Universal scope</button>
+        </div>
+        <p class="quiz-feedback" id="quiz-5-feedback"></p>
+      </div>
+
+      <div class="lesson-nav-btns">
+        <button class="btn-prev" onclick="goToLesson(4)">← Previous</button>
+        <button class="btn-next" onclick="goToLesson(6)">Next Lesson →</button>
+      </div>
+    </section>
+
+    <!-- ===== LESSON 6: Try It! Playground ===== -->
+    <section class="lesson" id="lesson-6">
+      <div class="lesson-header">
+        <span class="lesson-icon">🎮</span>
+        <div>
+          <p class="lesson-label">Lesson 7</p>
+          <h2>Try It! Function Builder</h2>
+        </div>
+      </div>
+
+      <div class="card concept-card">
+        <p>Build your own Python function! Choose a type, fill in the details, and see real Python code generated instantly.</p>
+      </div>
+
+      <!-- Function Builder -->
+      <div class="playground">
+        <h3>🏗️ Function Builder</h3>
+        <p class="pg-desc">What kind of function do you want to build?</p>
+
+        <div class="pg-row">
+          <label>Function Name:</label>
+          <input type="text" id="fb-name" value="my_function" oninput="buildFunction()" maxlength="25" />
+        </div>
+
+        <div class="pg-row">
+          <label>Template:</label>
+          <select id="fb-template" onchange="loadTemplate()">
+            <option value="greet">👋 Greeting Function</option>
+            <option value="add">➕ Add Two Numbers</option>
+            <option value="area">📐 Rectangle Area</option>
+            <option value="grade">🎓 Grade Checker</option>
+            <option value="power">⚡ Power Calculator</option>
+          </select>
+        </div>
+
+        <div class="pg-inputs" id="pg-inputs"></div>
+
+        <div class="pg-output-wrap">
+          <div class="code-label">⚡ Your Python Function</div>
+          <pre id="fb-code"><code></code></pre>
+        </div>
+        <button class="btn-run" onclick="runFunction()">▶ Run Function!</button>
+        <div class="fb-output" id="fb-output"></div>
+      </div>
+
+      <!-- Score Card -->
+      <div class="card score-card">
+        <h3>🏆 Your Score</h3>
+        <p>Quiz questions answered correctly:</p>
+        <div class="score-display">
+          <span id="score-correct">0</span>
+          <span class="score-sep">/</span>
+          <span>5</span>
+        </div>
+        <p id="score-msg" class="score-msg">Complete some quizzes to see your score!</p>
+        <div class="stars" id="stars"></div>
+      </div>
+
+      <div class="lesson-nav-btns">
+        <button class="btn-prev" onclick="goToLesson(5)">← Previous</button>
+        <a href="#top" class="btn-next">🔄 Start Over</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>Inspired by <a href="https://www.w3schools.com/python/python_functions.asp" target="_blank" rel="noopener">W3Schools Python Functions</a> • Made for K-12 Students 🎒</p>
+  </footer>
+
+  <script src="functions.js"></script>
+</body>
+</html>
