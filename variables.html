@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Learn Python Variables the fun way! An interactive tutorial designed for K-12 students to understand variables, data types, and naming rules in Python." />
+  <title>Python Variables – Learn with Fun! 🐍</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Source+Code+Pro:wght@400;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="variables.css" />
+</head>
+<body>
+
+  <!-- HERO -->
+  <header class="hero" id="top">
+    <div class="hero-blob blob1"></div>
+    <div class="hero-blob blob2"></div>
+    <div class="hero-content">
+      <span class="badge">🐍 Python for K-12</span>
+      <h1>Python <span class="gradient-text">Variables</span></h1>
+      <p class="hero-sub">Variables are like magic boxes that store information. Let's learn how they work!</p>
+      <a href="#lessons" class="btn-start">Start Learning ✨</a>
+    </div>
+    <div class="hero-snake">🐍</div>
+  </header>
+
+  <!-- PROGRESS BAR -->
+  <div class="progress-bar-wrap">
+    <div class="progress-bar-inner" id="progressBar"></div>
+  </div>
+
+  <!-- NAV PILLS -->
+  <nav class="lesson-nav" id="lessons" aria-label="Lesson navigation">
+    <div class="nav-scroll">
+      <a class="nav-pill dash-pill" href="index.html">🏠 Dashboard</a>
+      <button class="nav-pill active" data-lesson="0" onclick="goToLesson(0)">📦 What is a Variable?</button>
+      <button class="nav-pill" data-lesson="1" onclick="goToLesson(1)">🆕 Creating Variables</button>
+      <button class="nav-pill" data-lesson="2" onclick="goToLesson(2)">🔤 Data Types</button>
+      <button class="nav-pill" data-lesson="3" onclick="goToLesson(3)">📏 Naming Rules</button>
+      <button class="nav-pill" data-lesson="4" onclick="goToLesson(4)">🐫 Naming Styles</button>
+      <button class="nav-pill" data-lesson="5" onclick="goToLesson(5)">🎮 Try It!</button>
+    </div>
+  </nav>
+
+  <!-- LESSONS CONTAINER -->
+  <main class="lessons-wrap">
+
+    <!-- LESSON 0: What is a Variable? -->
+    <section class="lesson active" id="lesson-0">
+      <div class="lesson-header">
+        <span class="lesson-icon">📦</span>
+        <div>
+          <p class="lesson-label">Lesson 1</p>
+          <h2>What is a Variable?</h2>
+        </div>
+      </div>
+
+      <div class="card concept-card">
+        <p>Think of a variable like a <strong>labeled box</strong> 📦. You write a name on the outside, and you put something inside it. Whenever you need what's inside, you just say the name of the box!</p>
+        <div class="box-visual">
+          <div class="box" id="animBox">
+            <div class="box-lid">🔒</div>
+            <div class="box-label">name</div>
+            <div class="box-value">"Alice"</div>
+          </div>
+          <button class="btn-open" onclick="toggleBox()">Open / Close Box</button>
+        </div>
+      </div>
+
+      <div class="card code-card">
+        <div class="code-label">🐍 Python Example</div>
+        <pre><code><span class="var-name">name</span> <span class="op">=</span> <span class="str">"Alice"</span>
+<span class="var-name">age</span>  <span class="op">=</span> <span class="num">13</span>
+<span class="var-name">height</span> <span class="op">=</span> <span class="num">5.4</span>
+<span class="kw">print</span>(<span class="var-name">name</span>)   <span class="comment"># Alice</span>
+<span class="kw">print</span>(<span class="var-name">age</span>)    <span class="comment"># 13</span></code></pre>
+        <button class="btn-copy" onclick="copyCode(this)">📋 Copy</button>
+      </div>
+
+      <div class="card fact-card">
+        <span class="fact-icon">💡</span>
+        <p><strong>Key Fact:</strong> In Python you do <em>not</em> need to declare a variable before using it. A variable is created the moment you <strong>assign</strong> a value to it with the <code>=</code> sign.</p>
+      </div>
+
+      <div class="lesson-nav-btns">
+        <span></span>
+        <button class="btn-next" onclick="goToLesson(1)">Next Lesson →</button>
+      </div>
+    </section>
+
+    <!-- LESSON 1: Creating Variables -->
+    <section class="lesson" id="lesson-1">
+      <div class="lesson-header">
+        <span class="lesson-icon">🆕</span>
+        <div>
+          <p class="lesson-label">Lesson 2</p>
+          <h2>Creating Variables</h2>
+        </div>
+      </div>
+
+      <div class="card concept-card">
+        <p>Creating a variable is simple! You just type a <strong>name</strong>, then <code>=</code>, then the <strong>value</strong> you want to store.</p>
+        <div class="formula">
+          <span class="formula-part name-part">variable_name</span>
+          <span class="formula-part op-part">=</span>
+          <span class="formula-part val-part">value</span>
+        </div>
+      </div>
+
+      <div class="card code-card">
+        <div class="code-label">🐍 Python Example</div>
+        <pre><code><span class="comment"># Storing a name (text)</span>
+<span class="var-name">student</span> <span class="op">=</span> <span class="str">"Maria"</span>
+
+<span class="comment"># Storing a grade (number)</span>
+<span class="var-name">grade</span> <span class="op">=</span> <span class="num">95</span>
+
+<span class="comment"># Storing a GPA (decimal)</span>
+<span class="var-name">gpa</span> <span class="op">=</span> <span class="num">3.75</span>
+
+<span class="comment"># Variables can change!</span>
+<span class="var-name">grade</span> <span class="op">=</span> <span class="num">98</span>
+<span class="kw">print</span>(<span class="var-name">grade</span>)   <span class="comment"># 98</span></code></pre>
+        <button class="btn-copy" onclick="copyCode(this)">📋 Copy</button>
+      </div>
+
+      <div class="card fact-card">
+        <span class="fact-icon">🔄</span>
+        <p><strong>Variables can change!</strong> You can reassign a variable at any time — just use <code>=</code> again with the new value. The old value is replaced.</p>
+      </div>
+
+      <div class="card quiz-card" id="quiz-1">
+        <h3>🧠 Quick Quiz</h3>
+        <p>What symbol do we use to assign a value to a variable?</p>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="checkQuiz('quiz-1',this,'wrong')">==</button>
+          <button class="quiz-btn" onclick="checkQuiz('quiz-1',this,'correct')">=</button>
+          <button class="quiz-btn" onclick="checkQuiz('quiz-1',this,'wrong')">:=</button>
+          <button class="quiz-btn" onclick="checkQuiz('quiz-1',this,'wrong')">-></button>
+        </div>
+        <p class="quiz-feedback" id="quiz-1-feedback"></p>
+      </div>
+
+      <div class="lesson-nav-btns">
+        <button class="btn-prev" onclick="goToLesson(0)">← Previous</button>
+        <button class="btn-next" onclick="goToLesson(2)">Next Lesson →</button>
+      </div>
+    </section>
+
+    <!-- LESSON 2: Data Types -->
+    <section class="lesson" id="lesson-2">
+      <div class="lesson-header">
+        <span class="lesson-icon">🔤</span>
+        <div>
+          <p class="lesson-label">Lesson 3</p>
+          <h2>Data Types</h2>
+        </div>
+      </div>
+
+      <div class="card concept-card">
+        <p>Variables can store <strong>different kinds</strong> of data. The four most common types for beginners are:</p>
+      </div>
+
+      <div class="types-grid">
+        <div class="type-card str-card">
+          <div class="type-icon">💬</div>
+          <h3>String <code>str</code></h3>
+          <p>Text surrounded by quotes</p>
+          <pre><code>name <span class="op">=</span> <span class="str">"Alice"</span>
+city <span class="op">=</span> <span class="str">'NYC'</span></code></pre>
+        </div>
+        <div class="type-card int-card">
+          <div class="type-icon">🔢</div>
+          <h3>Integer <code>int</code></h3>
+          <p>Whole numbers (no decimal)</p>
+          <pre><code>age   <span class="op">=</span> <span class="num">13</span>
+score <span class="op">=</span> <span class="num">100</span></code></pre>
+        </div>
+        <div class="type-card float-card">
+          <div class="type-icon">📐</div>
+          <h3>Float <code>float</code></h3>
+          <p>Decimal numbers</p>
+          <pre><code>gpa    <span class="op">=</span> <span class="num">3.9</span>
+height <span class="op">=</span> <span class="num">5.4</span></code></pre>
+        </div>
+        <div class="type-card bool-card">
+          <div class="type-icon">✅</div>
+          <h3>Boolean <code>bool</code></h3>
+          <p>True or False only</p>
+          <pre><code>is_student <span class="op">=</span> <span class="kw">True</span>
+has_pet   <span class="op">=</span> <span class="kw">False</span></code></pre>
+        </div>
+      </div>
+
+      <div class="card code-card">
+        <div class="code-label">🐍 Checking the Type with <code>type()</code></div>
+        <pre><code><span class="var-name">x</span> <span class="op">=</span> <span class="num">42</span>
+<span class="kw">print</span>(<span class="kw">type</span>(<span class="var-name">x</span>))   <span class="comment"># &lt;class 'int'&gt;</span>
+
+<span class="var-name">y</span> <span class="op">=</span> <span class="str">"hello"</span>
+<span class="kw">print</span>(<span class="kw">type</span>(<span class="var-name">y</span>))   <span class="comment"># &lt;class 'str'&gt;</span>
+
+<span class="var-name">z</span> <span class="op">=</span> <span class="num">3.14</span>
+<span class="kw">print</span>(<span class="kw">type</span>(<span class="var-name">z</span>))   <span class="comment"># &lt;class 'float'&gt;</span></code></pre>
+        <button class="btn-copy" onclick="copyCode(this)">📋 Copy</button>
+      </div>
+
+      <div class="card quiz-card" id="quiz-2">
+        <h3>🧠 Quick Quiz</h3>
+        <p>What data type is <code>score = 95</code>?</p>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="checkQuiz('quiz-2',this,'wrong')">str</button>
+          <button class="quiz-btn" onclick="checkQuiz('quiz-2',this,'correct')">int</button>
+          <button class="quiz-btn" onclick="checkQuiz('quiz-2',this,'wrong')">float</button>
+          <button class="quiz-btn" onclick="checkQuiz('quiz-2',this,'wrong')">bool</button>
+        </div>
+        <p class="quiz-feedback" id="quiz-2-feedback"></p>
+      </div>
+
+      <div class="lesson-nav-btns">
+        <button class="btn-prev" onclick="goToLesson(1)">← Previous</button>
+        <button class="btn-next" onclick="goToLesson(3)">Next Lesson →</button>
+      </div>
+    </section>
+
+    <!-- LESSON 3: Naming Rules -->
+    <section class="lesson" id="lesson-3">
+      <div class="lesson-header">
+        <span class="lesson-icon">📏</span>
+        <div>
+          <p class="lesson-label">Lesson 4</p>
+          <h2>Naming Rules</h2>
+        </div>
+      </div>
+
+      <div class="card concept-card">
+        <p>Python has specific rules for how you can name your variables. Break these rules and your program won't run!</p>
+      </div>
+
+      <div class="rules-list">
+        <div class="rule valid">
+          <span class="rule-icon">✅</span>
+          <div>
+            <strong>Start with a letter or underscore _</strong>
+            <code>name = "ok"</code> &nbsp;|&nbsp; <code>_value = "ok"</code>
+          </div>
+        </div>
+        <div class="rule invalid">
+          <span class="rule-icon">❌</span>
+          <div>
+            <strong>Cannot start with a number</strong>
+            <code>1name = "error"</code>
+          </div>
+        </div>
+        <div class="rule valid">
+          <span class="rule-icon">✅</span>
+          <div>
+            <strong>Can contain letters, numbers, underscores</strong>
+            <code>student1 = "ok"</code> &nbsp;|&nbsp; <code>my_var = "ok"</code>
+          </div>
+        </div>
+        <div class="rule invalid">
+          <span class="rule-icon">❌</span>
+          <div>
+            <strong>No spaces or special characters</strong>
+            <code>my-var = "error"</code> &nbsp;|&nbsp; <code>my var = "error"</code>
+          </div>
+        </div>
+        <div class="rule warning">
+          <span class="rule-icon">⚠️</span>
+          <div>
+            <strong>Case-Sensitive: uppercase ≠ lowercase</strong>
+            <code>Name</code>, <code>name</code>, and <code>NAME</code> are <em>three different</em> variables!
+          </div>
+        </div>
+        <div class="rule invalid">
+          <span class="rule-icon">❌</span>
+          <div>
+            <strong>Cannot use Python keywords</strong>
+            <code>if = 5</code>, <code>print = "hi"</code>, <code>for = 1</code>
+          </div>
+        </div>
+      </div>
+
+      <div class="card quiz-card" id="quiz-3">
+        <h3>🧠 Quick Quiz</h3>
+        <p>Which variable name is <strong>VALID</strong> in Python?</p>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="checkQuiz('quiz-3',this,'wrong')">2cool</button>
+          <button class="quiz-btn" onclick="checkQuiz('quiz-3',this,'wrong')">my-name</button>
+          <button class="quiz-btn" onclick="checkQuiz('quiz-3',this,'correct')">my_name</button>
+          <button class="quiz-btn" onclick="checkQuiz('quiz-3',this,'wrong')">my name</button>
+        </div>
+        <p class="quiz-feedback" id="quiz-3-feedback"></p>
+      </div>
+
+      <div class="lesson-nav-btns">
+        <button class="btn-prev" onclick="goToLesson(2)">← Previous</button>
+        <button class="btn-next" onclick="goToLesson(4)">Next Lesson →</button>
+      </div>
+    </section>
+
+    <!-- LESSON 4: Naming Styles -->
+    <section class="lesson" id="lesson-4">
+      <div class="lesson-header">
+        <span class="lesson-icon">🐫</span>
+        <div>
+          <p class="lesson-label">Lesson 5</p>
+          <h2>Naming Styles</h2>
+        </div>
+      </div>
+
+      <div class="card concept-card">
+        <p>When a variable name has <strong>multiple words</strong>, Python programmers use one of these three styles. The most popular for Python is <strong>Snake Case</strong>!</p>
+      </div>
+
+      <div class="styles-grid">
+        <div class="style-card camel">
+          <div class="style-animal">🐪</div>
+          <h3>camelCase</h3>
+          <p>First word is lowercase. Each new word starts with a capital letter.</p>
+          <code>myVariableName</code>
+        </div>
+        <div class="style-card pascal">
+          <div class="style-animal">🦙</div>
+          <h3>PascalCase</h3>
+          <p>Every word starts with a capital letter.</p>
+          <code>MyVariableName</code>
+        </div>
+        <div class="style-card snake recommended">
+          <div class="style-animal">🐍</div>
+          <h3>snake_case <span class="rec-badge">Recommended</span></h3>
+          <p>Words are separated by underscores. All lowercase.</p>
+          <code>my_variable_name</code>
+        </div>
+      </div>
+
+      <div class="card fact-card">
+        <span class="fact-icon">🏆</span>
+        <p>The official Python style guide (<strong>PEP 8</strong>) recommends <strong>snake_case</strong> for variable names. Most Python programmers follow this!</p>
+      </div>
+
+      <div class="card quiz-card" id="quiz-4">
+        <h3>🧠 Quick Quiz</h3>
+        <p>Which style does Python's official guide recommend?</p>
+        <div class="quiz-options">
+          <button class="quiz-btn" onclick="checkQuiz('quiz-4',this,'wrong')">camelCase</button>
+          <button class="quiz-btn" onclick="checkQuiz('quiz-4',this,'wrong')">PascalCase</button>
+          <button class="quiz-btn" onclick="checkQuiz('quiz-4',this,'correct')">snake_case</button>
+          <button class="quiz-btn" onclick="checkQuiz('quiz-4',this,'wrong')">UPPER_CASE</button>
+        </div>
+        <p class="quiz-feedback" id="quiz-4-feedback"></p>
+      </div>
+
+      <div class="lesson-nav-btns">
+        <button class="btn-prev" onclick="goToLesson(3)">← Previous</button>
+        <button class="btn-next" onclick="goToLesson(5)">Next Lesson →</button>
+      </div>
+    </section>
+
+    <!-- LESSON 5: Interactive Playground -->
+    <section class="lesson" id="lesson-5">
+      <div class="lesson-header">
+        <span class="lesson-icon">🎮</span>
+        <div>
+          <p class="lesson-label">Lesson 6</p>
+          <h2>Try It! Variable Playground</h2>
+        </div>
+      </div>
+
+      <div class="card concept-card">
+        <p>Fill in the boxes below and see your Python variable code come to life! The app will show you what the code looks like and check if your variable name is valid.</p>
+      </div>
+
+      <div class="playground">
+        <div class="pg-row">
+          <label for="pg-var-name">📝 Variable Name:</label>
+          <input type="text" id="pg-var-name" placeholder="e.g. my_pet" oninput="updatePlayground()" />
+        </div>
+        <div class="pg-row">
+          <label for="pg-val-type">📦 Value Type:</label>
+          <select id="pg-val-type" onchange="updatePlayground()">
+            <option value="str">String (text)</option>
+            <option value="int">Integer (whole number)</option>
+            <option value="float">Float (decimal)</option>
+            <option value="bool">Boolean (True/False)</option>
+          </select>
+        </div>
+        <div class="pg-row" id="pg-value-row">
+          <label for="pg-value">💡 Value:</label>
+          <input type="text" id="pg-value" placeholder='e.g. "dog"' oninput="updatePlayground()" />
+        </div>
+
+        <div class="pg-output">
+          <div class="code-label">⚡ Generated Python Code</div>
+          <pre id="pg-code"><code>...</code></pre>
+          <div class="pg-status" id="pg-status"></div>
+        </div>
+
+        <button class="btn-run" onclick="runPlayground()">▶ Check My Variable!</button>
+        <div class="pg-result" id="pg-result"></div>
+      </div>
+
+      <!-- SCORE CARD -->
+      <div class="card score-card">
+        <h3>🏆 Your Score</h3>
+        <p>Quiz questions answered correctly:</p>
+        <div class="score-display">
+          <span id="score-correct">0</span>
+          <span class="score-sep">/</span>
+          <span>4</span>
+        </div>
+        <p id="score-msg" class="score-msg">Complete some quizzes to see your score!</p>
+        <div class="stars" id="stars"></div>
+      </div>
+
+      <div class="lesson-nav-btns">
+        <button class="btn-prev" onclick="goToLesson(4)">← Previous</button>
+        <a href="#top" class="btn-next">🔄 Start Over</a>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <p>Made for K-12 Students 🎒</p>
+  </footer>
+
+  <script src="variables.js"></script>
+</body>
+</html>
